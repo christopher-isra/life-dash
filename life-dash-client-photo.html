@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Dash — Photo Campaign</title>
+  <style>
+    @font-face { font-family: 'Manrope'; src: url('fonts/Manrope-Bold.ttf') format('truetype'); font-weight: 700; }
+    @font-face { font-family: 'Manrope'; src: url('fonts/Manrope-Regular.ttf') format('truetype'); font-weight: 400; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; background: #0f1923; color: #fff; }
+
+    .slide { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 140px; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; }
+    .slide-row { min-height: 100vh; display: flex; flex-direction: row; align-items: center; gap: 80px; padding: 60px 80px 60px 140px; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; }
+
+    .cover { background: #2973cb; }
+    .cover .logo { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 52px; display: flex; align-items: center; gap: 8px; }
+    .cover .dot { width: 7px; height: 7px; background: #fff; border-radius: 50%; }
+    .cover h1 { font-size: clamp(36px, 4vw, 58px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; max-width: 640px; margin-bottom: 20px; }
+    .cover p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 480px; line-height: 1.7; }
+    .cover .stamp { position: absolute; bottom: 48px; right: 140px; font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    .sc { background: #111c28; }
+    .sc2 { background: #0f1923; }
+
+    .tag { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #2973cb; margin-bottom: 20px; }
+    .headline { font-size: clamp(28px, 3.5vw, 48px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; max-width: 680px; margin-bottom: 20px; }
+    .body { font-size: clamp(15px, 1.6vw, 19px); font-weight: 400; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 640px; }
+    .body strong { font-weight: 700; color: #fff; }
+
+    .divider { background: #141e2b; min-height: 30vh; justify-content: flex-end; padding-bottom: 52px; }
+    .divider .num { font-size: 130px; font-weight: 700; color: rgba(255,255,255,0.03); position: absolute; right: 80px; bottom: 0; line-height: 1; }
+    .divider .itag { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2973cb; margin-bottom: 10px; }
+    .divider h2 { font-size: clamp(24px, 2.8vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; max-width: 500px; }
+    .divider p { font-size: 14px; color: rgba(255,255,255,0.35); margin-top: 12px; max-width: 460px; line-height: 1.6; }
+
+    /* CONCEPT SLIDE */
+    .concept-content { flex: 1; min-width: 0; }
+    .concept-label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2973cb; margin-bottom: 16px; }
+    .concept-title { font-size: clamp(22px, 2.8vw, 38px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 16px; }
+    .concept-body { font-size: clamp(14px, 1.5vw, 17px); font-weight: 400; line-height: 1.8; color: rgba(255,255,255,0.65); margin-bottom: 24px; }
+    .concept-body strong { font-weight: 700; color: #fff; }
+    .video-note { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 8px; }
+    .video-note::before { content: ''; display: block; width: 20px; height: 1px; background: rgba(255,255,255,0.2); }
+
+    /* IMAGE PLACEHOLDER */
+    .img-slot { width: 420px; height: 420px; flex-shrink: 0; border-radius: 16px; background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.12); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .img-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; }
+    .img-slot .ph-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+    .img-slot .ph-sub { font-size: 11px; color: rgba(255,255,255,0.1); }
+
+    /* HEADLINE CARD */
+    .hl-card { display: inline-block; margin-top: 20px; padding: 14px 22px; background: rgba(41,115,203,0.15); border: 1px solid rgba(41,115,203,0.3); border-radius: 8px; }
+    .hl-card .hl-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
+    .hl-card .hl-text { font-size: clamp(16px, 1.8vw, 22px); font-weight: 700; letter-spacing: -0.02em; color: #fff; }
+
+    /* VIDEO EXTENSION SLIDE */
+    .video-slide { background: #141e2b; }
+    .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; max-width: 900px; }
+    .video-item { padding: 24px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); }
+    .video-item .vi-num { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2973cb; margin-bottom: 10px; }
+    .video-item .vi-title { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .video-item .vi-body { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+    .nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 7px; z-index: 100; }
+    .nav a { display: block; width: 5px; height: 5px; background: rgba(255,255,255,0.15); border-radius: 50%; text-decoration: none; transition: background 0.2s; }
+    .nav a:hover { background: #fff; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#cover"></a>
+  <a href="#approach"></a>
+  <a href="#d1"></a><a href="#1a"></a><a href="#1b"></a><a href="#1c"></a>
+  <a href="#d2"></a><a href="#2a"></a><a href="#2b"></a><a href="#2c"></a>
+  <a href="#d3"></a><a href="#3a"></a><a href="#3b"></a><a href="#3c"></a>
+  <a href="#video"></a>
+</nav>
+
+<!-- COVER -->
+<section class="slide cover" id="cover">
+  <div class="logo"><span class="dot"></span>Life Dash</div>
+  <h1>Photo-Based<br>Ad Campaign</h1>
+  <p>Three campaign ideas. Nine executions. Each one built around a moment your audience already knows.</p>
+  <div class="stamp">April 2026</div>
+</section>
+
+<!-- APPROACH -->
+<section class="slide sc" id="approach">
+  <div class="tag">The Approach</div>
+  <div class="headline">Recognition is faster<br>than persuasion.</div>
+  <div class="body">
+    Photo-based creative puts Life Dash inside someone's life before they've agreed to care about it. The person scrolling doesn't have to imagine anything — they see a kitchen counter that looks like their kitchen counter. A waiting room they've sat in. A piece of paper they've held too many times.
+    <br><br>
+    Every execution in this campaign is built around <strong>a moment the audience already knows.</strong> We're not explaining what Life Dash does. We're showing someone who already has it.
+  </div>
+</section>
+
+<!-- DIVIDER 1 -->
+<section class="slide divider" id="d1">
+  <div class="itag">Idea 01</div>
+  <h2>Medication &amp; Lab Results</h2>
+  <p>The broadest idea. Anyone managing long-term medication who has never been able to see whether it's working.</p>
+  <div class="num">01</div>
+</section>
+
+<!-- 1A -->
+<section class="slide-row sc2" id="1a">
+  <div class="concept-content">
+    <div class="concept-label">Idea 01 · Path A</div>
+    <div class="concept-title">See If It's Working</div>
+    <div class="concept-body">
+      No person. No demographic. No condition. Just the question that anyone on any long-term medication has had in the back of their mind for years — and a data visual that shows the answer exists.
+      <br><br>
+      <strong>Split-frame still: paper on one side, a graph on the other.</strong> The simplest execution in the set and the broadest possible audience.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"See If It's Working."</div>
+    </div>
+    <div class="video-note">Video extension: paper dissolving into a graph</div>
+  </div>
+  <div class="img-slot" id="img-1a">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path A · Split Frame</div>
+  </div>
+</section>
+
+<!-- 1B -->
+<section class="slide-row sc" id="1b">
+  <div class="concept-content">
+    <div class="concept-label">Idea 01 · Path B</div>
+    <div class="concept-title">Your Pills. Your Results. Connected.</div>
+    <div class="concept-body">
+      We're in the kitchen — morning pills, coffee, phone on the counter. The shift here is from anxiety to agency. <strong>We're not telling someone they have a problem. We're showing someone who already has their life sorted</strong> and Life Dash is the piece that makes it complete.
+      <br><br>
+      Flat-lay format. Native to Instagram Stories and Facebook Feed — reads as content, not an ad.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"Your Pills. Your Results. Connected."</div>
+    </div>
+    <div class="video-note">Video extension: items assembling into an organised layout</div>
+  </div>
+  <div class="img-slot" id="img-1b">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path B · Morning Routine</div>
+  </div>
+</section>
+
+<!-- 1C -->
+<section class="slide-row sc2" id="1c">
+  <div class="concept-content">
+    <div class="concept-label">Idea 01 · Path C</div>
+    <div class="concept-title">Six Portals. One Dashboard. Free.</div>
+    <div class="concept-body">
+      Before-and-after diptych — genuine chaos on the left, clean dashboard on the right. Anyone who has tried to manage their health across multiple providers will count to six in their head before they finish reading the headline.
+      <br><br>
+      <strong>That moment of recognition is the click.</strong> The strongest retargeting piece in the set.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"Six Portals. One Dashboard. Free."</div>
+    </div>
+    <div class="video-note">Video extension: scattered papers dissolving into a clean dashboard</div>
+  </div>
+  <div class="img-slot" id="img-1c">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path C · Chaos to Clarity</div>
+  </div>
+</section>
+
+<!-- DIVIDER 2 -->
+<section class="slide divider" id="d2">
+  <div class="itag">Idea 02</div>
+  <h2>The GLP-1 Generation</h2>
+  <p>The most defined audience in the set. High intent, medically engaged, and almost completely underserved by existing tools.</p>
+  <div class="num">02</div>
+</section>
+
+<!-- 2A -->
+<section class="slide-row sc" id="2a">
+  <div class="concept-content">
+    <div class="concept-label">Idea 02 · Path A</div>
+    <div class="concept-title">Beyond The Scale</div>
+    <div class="concept-body">
+      The whole market is obsessing over one number. Life Dash is the only product asking about everything else.
+      <br><br>
+      <strong>Week one versus week twenty-four. Sparse versus rich.</strong> We're not positioning against weight loss — we're expanding what success looks like. That's a completely open space right now.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"Beyond The Scale."</div>
+    </div>
+    <div class="video-note">Video extension: single metric expanding into a full health picture</div>
+  </div>
+  <div class="img-slot" id="img-2a">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path A · Week 1 vs Week 24</div>
+  </div>
+</section>
+
+<!-- 2B -->
+<section class="slide-row sc2" id="2b">
+  <div class="concept-content">
+    <div class="concept-label">Idea 02 · Path B</div>
+    <div class="concept-title">Walk In Already Knowing</div>
+    <div class="concept-body">
+      A patient showing a doctor their own data. Shot from behind the patient — they're the one leading the conversation.
+      <br><br>
+      Every person with a long-term condition has sat in that room not knowing what they're about to be told. <strong>This ad shows them the other version of that moment.</strong> We're not selling a product feature — we're selling a feeling most patients have never had.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"Walk In Already Knowing."</div>
+    </div>
+    <div class="video-note">Video extension: patient walking into appointment, phone in hand</div>
+  </div>
+  <div class="img-slot" id="img-2b">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path B · Patient Leads</div>
+  </div>
+</section>
+
+<!-- 2C -->
+<section class="slide-row sc" id="2c">
+  <div class="concept-content">
+    <div class="concept-label">Idea 02 · Path C</div>
+    <div class="concept-title">What Is GLP-1 Doing?</div>
+    <div class="concept-body">
+      A close-up of a multi-line graph — four markers tracked together. One dips, the next follows.
+      <br><br>
+      The headline is the question people are already Googling. <strong>We don't answer it in the ad — the graph implies the answer exists inside the product.</strong> That gap is the click. Pairs directly with Google search intent keywords.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"What Is GLP-1 Doing?"</div>
+    </div>
+    <div class="video-note">Video extension: graph lines animating in one by one</div>
+  </div>
+  <div class="img-slot" id="img-2c">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path C · Multi-Line Graph</div>
+  </div>
+</section>
+
+<!-- DIVIDER 3 -->
+<section class="slide divider" id="d3">
+  <div class="itag">Idea 03</div>
+  <h2>Cholesterol Treadmill</h2>
+  <p>Targets a frustration nobody is currently advertising to. Millions of people take a statin every morning and have no idea if it's doing anything.</p>
+  <div class="num">03</div>
+</section>
+
+<!-- 3A -->
+<section class="slide-row sc2" id="3a">
+  <div class="concept-content">
+    <div class="concept-label">Idea 03 · Path A</div>
+    <div class="concept-title">Three Years. One Graph.</div>
+    <div class="concept-body">
+      A man at his kitchen table. Phone showing a two-year graph. Family photo blurred in the background.
+      <br><br>
+      <strong>The emotional payoff isn't fear — it's proof of effort.</strong> He did the unglamorous work. He took the pill every day. Life Dash is the first thing that's ever shown him it worked. That's a profound moment and it's made quiet — which is exactly right.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"Three Years. One Graph."</div>
+    </div>
+    <div class="video-note">Video extension: graph line slowly building over time</div>
+  </div>
+  <div class="img-slot" id="img-3a">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path A · Kitchen Table</div>
+  </div>
+</section>
+
+<!-- 3B -->
+<section class="slide-row sc" id="3b">
+  <div class="concept-content">
+    <div class="concept-label">Idea 03 · Path B</div>
+    <div class="concept-title">18 Months Of Truth</div>
+    <div class="concept-body">
+      A lab printout with a single number highlighted: 187. Next to a Life Dash graph showing where that number went over 18 months.
+      <br><br>
+      That piece of paper you held in the car park outside the doctor's office was not the whole story. <strong>The whole story is what happened after — and for the first time, you can see it.</strong> The 18-month figure feels like a real person's experience, not a round marketing number.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"18 Months Of Truth."</div>
+    </div>
+    <div class="video-note">Video extension: paper printout zooming out to reveal the full trend line</div>
+  </div>
+  <div class="img-slot" id="img-3b">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path B · 187 → Trend</div>
+  </div>
+</section>
+
+<!-- 3C -->
+<section class="slide-row sc2" id="3c">
+  <div class="concept-content">
+    <div class="concept-label">Idea 03 · Path C</div>
+    <div class="concept-title">No Waiting To Know</div>
+    <div class="concept-body">
+      The waiting room flipped. The anxiety is gone. She's sitting there comparing her new lab results to a trend she's been watching for a year. The doctor walks in and she's already nodding.
+      <br><br>
+      <strong>Quiet confidence. Not urgency.</strong> That's a tone most health advertising never reaches — and the double meaning in the headline earns its scroll stop.
+    </div>
+    <div class="hl-card">
+      <div class="hl-label">Ad Headline</div>
+      <div class="hl-text">"No Waiting To Know."</div>
+    </div>
+    <div class="video-note">Video extension: waiting room, she looks up from phone already smiling as doctor enters</div>
+  </div>
+  <div class="img-slot" id="img-3c">
+    <div class="ph-label">Concept Image</div>
+    <div class="ph-sub">Path C · Waiting Room</div>
+  </div>
+</section>
+
+<!-- VIDEO EXTENSIONS -->
+<section class="slide video-slide" id="video">
+  <div class="tag">Every Still Has A Video Extension</div>
+  <div class="headline">Nine stills.<br>Nine videos.</div>
+  <div class="body" style="margin-bottom:0;">Each photo execution has a corresponding video ad — the still establishes the moment, the video brings it to life. No additional creative concept work required once the stills are approved.</div>
+  <div class="video-grid">
+    <div class="video-item">
+      <div class="vi-num">Idea 01</div>
+      <div class="vi-title">Medication &amp; Lab Results</div>
+      <div class="vi-body">Papers dissolving into a graph. Items assembling into an organised layout. Scattered documents clearing to reveal a clean screen.</div>
+    </div>
+    <div class="video-item">
+      <div class="vi-num">Idea 02</div>
+      <div class="vi-title">The GLP-1 Generation</div>
+      <div class="vi-body">A single metric expanding into a full health picture. Graph lines animating in one by one. Patient walking into an appointment, phone in hand.</div>
+    </div>
+    <div class="video-item">
+      <div class="vi-num">Idea 03</div>
+      <div class="vi-title">Cholesterol Treadmill</div>
+      <div class="vi-body">A trend line slowly building over time. A printout number zooming out to reveal 18 months of data. A waiting room moment becoming a confident one.</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
