@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Dash — Meeting Script</title>
+  <style>
+    @font-face {
+      font-family: 'Manrope';
+      src: url('fonts/Manrope-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('fonts/Manrope-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #0f1923;
+      color: #fff;
+      line-height: 1.7;
+    }
+
+    /* ── SLIDE SHELL ── */
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 120px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── COVER ── */
+    .cover { background: #2973cb; }
+    .cover .logo {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+      margin-bottom: 56px; display: flex; align-items: center; gap: 8px;
+    }
+    .cover .dot { width: 7px; height: 7px; background: #fff; border-radius: 50%; }
+    .cover h1 {
+      font-size: clamp(38px, 4.5vw, 64px); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.05; max-width: 680px;
+      margin-bottom: 28px;
+    }
+    .cover .sub {
+      font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.6);
+      max-width: 460px; line-height: 1.65;
+    }
+    .cover .meta {
+      position: absolute; bottom: 48px; right: 120px;
+      font-size: 11px; font-weight: 400;
+      color: rgba(255,255,255,0.3); letter-spacing: 0.06em;
+    }
+
+    /* ── SCRIPT SLIDE ── */
+    .script-slide { background: #111c28; }
+
+    .slide-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: #2973cb; margin-bottom: 36px;
+    }
+
+    .say {
+      font-size: clamp(18px, 2vw, 26px); font-weight: 400;
+      color: rgba(255,255,255,0.9); line-height: 1.65;
+      max-width: 780px; margin-bottom: 44px;
+    }
+    .say strong { font-weight: 700; color: #fff; }
+
+    .notes-box {
+      background: rgba(41,115,203,0.12);
+      border-left: 3px solid #2973cb;
+      border-radius: 0 8px 8px 0;
+      padding: 18px 24px;
+      max-width: 680px;
+    }
+    .notes-box .notes-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #2973cb; margin-bottom: 10px;
+    }
+    .notes-box ul {
+      list-style: none; padding: 0;
+    }
+    .notes-box ul li {
+      font-size: 13px; font-weight: 400;
+      color: rgba(255,255,255,0.5); line-height: 1.6;
+      padding: 4px 0;
+    }
+    .notes-box ul li::before {
+      content: '— '; color: #2973cb;
+    }
+
+    /* ── IDEA HEADER ── */
+    .idea-header {
+      background: #141e2b;
+      min-height: 40vh;
+      justify-content: flex-end;
+      padding-bottom: 56px;
+    }
+    .idea-header .num {
+      font-size: 140px; font-weight: 700;
+      color: rgba(255,255,255,0.03);
+      position: absolute; right: 80px; bottom: 0;
+      line-height: 1;
+    }
+    .idea-header .idea-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: #2973cb; margin-bottom: 14px;
+    }
+    .idea-header h2 {
+      font-size: clamp(26px, 3vw, 42px); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.1;
+      max-width: 580px; margin-bottom: 14px;
+    }
+    .idea-header .idea-sub {
+      font-size: 14px; font-weight: 400;
+      color: rgba(255,255,255,0.4); max-width: 460px;
+    }
+
+    /* ── PATH BLOCK ── */
+    .path-block {
+      background: #0f1923;
+    }
+    .path-block .path-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
+      margin-bottom: 8px;
+    }
+    .path-block .path-tag span { color: #2973cb; }
+    .path-block .hl {
+      font-size: clamp(22px, 2.4vw, 32px); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.1;
+      color: #fff; margin-bottom: 20px;
+    }
+
+    /* ── RECOMMEND SLIDE ── */
+    .recommend { background: #2973cb; }
+    .recommend h2 {
+      font-size: clamp(28px, 3vw, 44px); font-weight: 700;
+      letter-spacing: -0.025em; line-height: 1.1;
+      max-width: 660px; margin-bottom: 40px;
+    }
+    .rec-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px; max-width: 860px;
+    }
+    .rec-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 24px;
+    }
+    .rec-card .rec-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+      margin-bottom: 10px;
+    }
+    .rec-card .rec-hl {
+      font-size: 18px; font-weight: 700;
+      line-height: 1.2; color: #fff; margin-bottom: 10px;
+    }
+    .rec-card .rec-why {
+      font-size: 12px; font-weight: 400;
+      color: rgba(255,255,255,0.6); line-height: 1.55;
+    }
+
+    /* ── CLOSE ── */
+    .close-slide { background: #111c28; }
+    .close-slide .close-hl {
+      font-size: clamp(32px, 4vw, 58px); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.05;
+      max-width: 700px; margin-bottom: 28px;
+    }
+    .close-slide .close-sub {
+      font-size: 15px; font-weight: 400;
+      color: rgba(255,255,255,0.45); max-width: 480px; line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; right: 24px; top: 50%;
+      transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 8px; z-index: 100;
+    }
+    .nav a {
+      display: block; width: 5px; height: 5px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav a:hover { background: #fff; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#cover"></a>
+  <a href="#context"></a>
+  <a href="#opportunity"></a>
+  <a href="#idea1-intro"></a>
+  <a href="#idea1-paths"></a>
+  <a href="#idea2-intro"></a>
+  <a href="#idea2-paths"></a>
+  <a href="#idea3-intro"></a>
+  <a href="#idea3-paths"></a>
+  <a href="#tg-intro"></a>
+  <a href="#tg-script"></a>
+  <a href="#recommend"></a>
+  <a href="#close"></a>
+</nav>
+
+<!-- ══ COVER ══ -->
+<section class="slide cover" id="cover">
+  <div class="logo"><span class="dot"></span> Life Dash</div>
+  <h1>Three Campaign Ideas.<br>One Clear Opportunity.</h1>
+  <p class="sub">A walk-through of our ad creative strategy across Meta and Google — photo-based and text-only executions.</p>
+  <div class="meta">April 2026 · Internal Review</div>
+</section>
+
+<!-- ══ CONTEXT ══ -->
+<section class="slide script-slide" id="context">
+  <div class="slide-label">Setting The Scene</div>
+  <div class="say">
+    The core insight behind all of this is simple. <strong>People with ongoing health conditions generate data their whole lives</strong> — prescriptions, blood tests, annual checkups — but they have no way to see it as a story. Every result arrives as a single number, in a different portal, with no connection to anything else.
+    <br><br>
+    Life Dash solves that. <strong>Free, private, no doctor required.</strong> You log your meds, upload your results, and for the first time you can see whether anything is actually changing.
+    <br><br>
+    What we're trying to do with these ads is make that problem feel real before we offer the solution.
+  </div>
+  <div class="notes-box">
+    <div class="notes-label">Talking Points</div>
+    <ul>
+      <li>We're not selling a diagnosis — we're selling visibility</li>
+      <li>The audience already has the data, they just can't use it</li>
+      <li>Free removes the biggest objection before they even have it</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ MARKET OPPORTUNITY ══ -->
+<section class="slide script-slide" id="opportunity">
+  <div class="slide-label">Why Now</div>
+  <div class="say">
+    The closest competitor in this space — Heads Up Health — has <strong>quietly exited the consumer market</strong> and gone B2B. That leaves a significant gap. There is no well-known, well-marketed consumer product that does what Life Dash does.
+    <br><br>
+    On top of that, we have a specific wave to ride: <strong>the GLP-1 generation</strong>. Millions of people are now a year or more into metabolic medication and have never once seen their bloodwork trends alongside their dosage. They're the perfect early adopter — highly motivated, medically engaged, and underserved by existing tools.
+    <br><br>
+    These three campaign ideas are built around the three clearest entry points into that audience.
+  </div>
+  <div class="notes-box">
+    <div class="notes-label">Talking Points</div>
+    <ul>
+      <li>Heads Up Health pivot = first-mover advantage for consumer positioning</li>
+      <li>GLP-1 users are a natural beachhead — high intent, trackable cohort</li>
+      <li>Cholesterol and general med tracking follow the same emotional arc</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ IDEA 1 HEADER ══ -->
+<section class="slide idea-header" id="idea1-intro">
+  <div class="idea-tag">Idea 01</div>
+  <h2>Medication &amp; Lab Results</h2>
+  <p class="idea-sub">The broadest idea. Catches anyone managing ongoing prescriptions or bloodwork. No condition named — just the universal frustration of scattered health data.</p>
+  <div class="num">01</div>
+</section>
+
+<!-- ══ IDEA 1 SCRIPT ══ -->
+<section class="slide script-slide" id="idea1-paths">
+  <div class="slide-label">Idea 01 · Three Paths</div>
+  <div class="say">
+    This idea has three executions, and they escalate in boldness.
+    <br><br>
+    <strong>Path A</strong> is the quietest. Just a split-frame — paper on one side, a clean graph on the other. The headline does the work: <em>"See If It's Working."</em> Four words that ask the question millions of people have never been able to answer. We're betting that question alone stops the scroll.
+    <br><br>
+    <strong>Path B</strong> is warmer. We're in the kitchen — morning pills, coffee, phone on the counter. It's about agency: you already have the routine, Life Dash adds the picture. Headline: <em>"Your Medication. Your Results. Connected."</em> It reassures rather than provokes.
+    <br><br>
+    <strong>Path C</strong> is the most confrontational. The before/after diptych — paper chaos on the left, clean dashboard on the right. Same hands in both frames. The headline earns its specificity: <em>"Six Portals. One Dashboard. Free."</em> That number six is real. Anyone who's tried to manage their health across NHS, private, and pharmacy portals will feel it immediately.
+  </div>
+  <div class="notes-box">
+    <div class="notes-label">Which to Lead With</div>
+    <ul>
+      <li>Path A for cold audiences — lowest barrier, highest emotional hook</li>
+      <li>Path C for retargeting — they already know the pain, now name it precisely</li>
+      <li>Path B for brand warmth and Instagram Stories format</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ IDEA 2 HEADER ══ -->
+<section class="slide idea-header" id="idea2-intro">
+  <div class="idea-tag">Idea 02</div>
+  <h2>The GLP-1 Generation</h2>
+  <p class="idea-sub">Medication as the hero. No condition naming — Meta policy compliance built in. The story is metabolic change over six months, not weight loss.</p>
+  <div class="num">02</div>
+</section>
+
+<!-- ══ IDEA 2 SCRIPT ══ -->
+<section class="slide script-slide" id="idea2-paths">
+  <div class="slide-label">Idea 02 · Three Paths</div>
+  <div class="say">
+    This is our highest-intent audience and potentially our most shareable creative.
+    <br><br>
+    <strong>Path A</strong> is a data story. Two dashboard screenshots — Week 1 versus Week 24. Sparse versus rich. The headline is <em>"Beyond The Scale"</em> — which is both the creative concept and the insight. Everyone on GLP-1 is obsessing over the scale. We're the only product asking what's happening everywhere else.
+    <br><br>
+    <strong>Path B</strong> shifts to empowerment. We put the patient in front of the doctor — but the patient is the one with the data. Shot from behind their shoulder. Headline: <em>"Walk In Already Knowing."</em> That's a fantasy every person with a chronic condition has had. We're making it real.
+    <br><br>
+    <strong>Path C</strong> is pure product. A multi-line graph — cholesterol, blood sugar, liver markers, weight — all tracking together. The question in the headline, <em>"What Is GLP-1 Doing?"</em>, is the thing people are Googling at 11pm. We answer it.
+  </div>
+  <div class="notes-box">
+    <div class="notes-label">Compliance Note</div>
+    <ul>
+      <li>We do not name any condition in any GLP-1 execution</li>
+      <li>No before/after body imagery — all data and people, no physique comparison</li>
+      <li>Meta health advertising policy reviewed — all three paths are clean</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ IDEA 3 HEADER ══ -->
+<section class="slide idea-header" id="idea3-intro">
+  <div class="idea-tag">Idea 03</div>
+  <h2>Cholesterol Treadmill</h2>
+  <p class="idea-sub">For the statin taker who's been compliant for years and has no idea if it's working. The emotional hook is proof of effort, not fear of disease.</p>
+  <div class="num">03</div>
+</section>
+
+<!-- ══ IDEA 3 SCRIPT ══ -->
+<section class="slide script-slide" id="idea3-paths">
+  <div class="slide-label">Idea 03 · Three Paths</div>
+  <div class="say">
+    This idea is built on a quiet frustration that almost nobody is speaking to.
+    <br><br>
+    <strong>Path A</strong> is the most human. A man in his late 50s at a kitchen table, holding his phone. Behind him — slightly out of focus — a family photo. The graph on his screen shows three years of cholesterol readings. He's been doing the right thing. He just never knew it was working. Headline: <em>"Three Years. One Graph."</em>
+    <br><br>
+    <strong>Path B</strong> is high-contrast and bold. A printed lab result with LDL 187 circled. Overlaid: the same number at the start of an 18-month graph that trends down to 114. The headline: <em>"18 Months Of Truth."</em> It reframes the printout — not as a verdict, but as a starting point.
+    <br><br>
+    <strong>Path C</strong> flips the doctor's waiting room. Usually that moment is anxious — you're waiting to be told something. Here, the patient is already comparing her new results to her Life Dash trend. She already knows. The headline is a play on words that earns its place: <em>"No Waiting To Know."</em>
+  </div>
+  <div class="notes-box">
+    <div class="notes-label">Casting Note</div>
+    <ul>
+      <li>All three paths need ages 45–65, diverse, real — not aspirational</li>
+      <li>Path A: the quiet confidence of someone who did the unglamorous work</li>
+      <li>Path C: a woman leading — she owns the data, the doctor confirms it</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ TEXT & GRAPHIC INTRO ══ -->
+<section class="slide script-slide" id="tg-intro">
+  <div class="slide-label">Second Creative Direction</div>
+  <div class="say">
+    Alongside the photo-based work, we've developed a <strong>parallel set of text-and-graphic executions</strong> — no photography at all. Just the headline, the brand, and a data visual.
+    <br><br>
+    These are faster to produce, easier to iterate, and in many cases <strong>will outperform the photo versions on cold traffic</strong> because there's no human to misread or scroll past. The message lands in under a second.
+    <br><br>
+    Each headline was put through an Ogilvy lens first — brand name in the headline, specific promise, named audience — then compressed using the Seven Sweeps framework to strip anything that wasn't load-bearing. What's left is as short as it can be without losing meaning.
+  </div>
+  <div class="notes-box">
+    <div class="notes-label">Why Test Both</div>
+    <ul>
+      <li>Photo builds brand trust and warmth — better for mid-funnel</li>
+      <li>Text/graphic drives click intent — better for cold acquisition</li>
+      <li>Running both gives us signal on which emotion is doing the work</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ TEXT & GRAPHIC SCRIPT ══ -->
+<section class="slide script-slide" id="tg-script">
+  <div class="slide-label">Text &amp; Graphic · The Headlines</div>
+  <div class="say">
+    Nine headlines, each one built from a longer Ogilvy source line and then cut to the bone.
+    <br><br>
+    Idea 1: <strong>"See If It's Working"</strong> — the question. <strong>"Your Medication. Your Results. Connected."</strong> — the promise. <strong>"Six Portals. One Dashboard. Free."</strong> — the specific pain.
+    <br><br>
+    Idea 2: <strong>"Beyond The Scale"</strong> — the aspiration without clinical framing. <strong>"Walk In Already Knowing"</strong> — pure confidence. <strong>"What Is GLP-1 Doing?"</strong> — the question people are already asking.
+    <br><br>
+    Idea 3: <strong>"Three Years. One Graph."</strong> — proof of effort made visible. <strong>"18 Months Of Truth"</strong> — the trend they never got to see. <strong>"No Waiting To Know"</strong> — the pun that stops the read and earns its place.
+    <br><br>
+    Any one of these can run as a static card on Meta or a Google Responsive Search Ad headline tomorrow. No shoot required.
+  </div>
+  <div class="notes-box">
+    <div class="notes-label">First Tests to Run</div>
+    <ul>
+      <li>"See If It's Working" vs "Six Portals. One Dashboard. Free." — question vs specific pain</li>
+      <li>"Beyond The Scale" — test with GLP-1 interest targeting only</li>
+      <li>"No Waiting To Know" — doctor's waiting room context makes the pun land</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ RECOMMENDATION ══ -->
+<section class="slide recommend" id="recommend">
+  <h2>Where to Start</h2>
+  <div class="rec-grid">
+    <div class="rec-card">
+      <div class="rec-label">Lead Creative</div>
+      <div class="rec-hl">"See If It's Working"</div>
+      <div class="rec-why">Broadest audience. Catches anyone on any medication. The question does the work — no photography needed to make it feel personal.</div>
+    </div>
+    <div class="rec-card">
+      <div class="rec-label">High-Intent Test</div>
+      <div class="rec-hl">"Beyond The Scale"</div>
+      <div class="rec-why">GLP-1 interest targeting is highly specific. This audience is already engaged — we're just giving them a product they didn't know existed.</div>
+    </div>
+    <div class="rec-card">
+      <div class="rec-label">Brand Builder</div>
+      <div class="rec-hl">"Walk In Already Knowing"</div>
+      <div class="rec-why">The doctor's appointment scene works across all three campaign ideas. It's the one moment in health that everyone relates to, regardless of condition.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CLOSE ══ -->
+<section class="slide close-slide" id="close">
+  <div class="close-hl">Three ideas.<br>Nine executions.<br>One question each.</div>
+  <p class="close-sub">Every piece of creative we've built is built around the thing the audience already wants to know — and has never been able to answer. That's the edge.</p>
+</section>
+
+</body>
+</html>
