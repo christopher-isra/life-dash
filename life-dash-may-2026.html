@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Dash — May 2026 Campaign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; background: #0f1923; color: #fff; }
+
+    /* COVER */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 120px;
+      background: #2973cb;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::after {
+      content: 'LIFE DASH';
+      position: absolute;
+      right: -20px;
+      bottom: -40px;
+      font-size: 220px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.06);
+      white-space: nowrap;
+      user-select: none;
+      line-height: 1;
+    }
+    .cover-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 48px; }
+    .cover h1 { font-size: clamp(44px, 5.5vw, 78px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.0; margin-bottom: 28px; }
+    .cover p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 480px; line-height: 1.75; }
+    .cover .stamp { position: absolute; bottom: 48px; right: 120px; font-size: 11px; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); }
+
+    /* APPROACH */
+    .approach {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 120px;
+      background: #111c28;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .tag { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #2973cb; margin-bottom: 20px; }
+    .approach h2 { font-size: clamp(34px, 4vw, 58px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; max-width: 680px; margin-bottom: 28px; }
+    .approach .body { font-size: clamp(15px, 1.5vw, 18px); line-height: 1.85; color: rgba(255,255,255,0.62); max-width: 640px; }
+    .approach .body strong { color: #fff; font-weight: 700; }
+
+    /* DIVIDER */
+    .divider {
+      min-height: 38vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 56px 120px;
+      background: #141e2b;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .divider .bg-num {
+      font-size: 240px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.025);
+      position: absolute;
+      right: 40px;
+      bottom: -30px;
+      line-height: 1;
+      user-select: none;
+      letter-spacing: -0.05em;
+    }
+    .divider .itag { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #2973cb; margin-bottom: 14px; }
+    .divider h2 { font-size: clamp(30px, 3.8vw, 52px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; max-width: 580px; margin-bottom: 14px; }
+    .divider .desc { font-size: 14px; color: rgba(255,255,255,0.32); max-width: 520px; line-height: 1.65; }
+
+    /* PATH SLIDE */
+    .path-slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .path-slide.flip { flex-direction: row-reverse; }
+
+    .path-text {
+      flex: 0 0 38%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 56px 80px 120px;
+    }
+    .path-slide.flip .path-text {
+      padding: 80px 120px 80px 56px;
+    }
+
+    .path-image {
+      flex: 0 0 62%;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .path-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .path-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #2973cb;
+      margin-bottom: 18px;
+    }
+    .path-title {
+      font-size: clamp(26px, 3vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+    .path-body {
+      font-size: clamp(14px, 1.35vw, 16px);
+      font-weight: 400;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.55);
+      max-width: 380px;
+    }
+
+    .bg-dark { background: #0f1923; }
+    .bg-mid  { background: #111c28; }
+
+    /* NAV DOTS */
+    .nav {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 100;
+    }
+    .nav a {
+      display: block;
+      width: 5px;
+      height: 5px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav a:hover { background: rgba(255,255,255,0.7); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#cover"></a>
+  <a href="#approach"></a>
+  <a href="#d1"></a><a href="#1a"></a><a href="#1b"></a><a href="#1c"></a>
+  <a href="#d2"></a><a href="#2a"></a><a href="#2b"></a><a href="#2c"></a>
+  <a href="#d3"></a><a href="#3a"></a><a href="#3b"></a><a href="#3c"></a>
+</nav>
+
+<!-- COVER -->
+<section class="cover" id="cover">
+  <div class="cover-eyebrow">Life Dash</div>
+  <h1>Photo-Based<br>Ad Campaign</h1>
+  <p>Three campaign ideas. Each one built around a moment your audience already knows.</p>
+  <div class="stamp">May 2026</div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="tag">The Approach</div>
+  <h2>Recognition is faster<br>than persuasion.</h2>
+  <div class="body">
+    Photo-based creative puts Life Dash inside someone's life before they've agreed to care about it. The person scrolling doesn't have to imagine anything — they see a kitchen counter that looks like their kitchen counter. A waiting room they've sat in. A piece of paper they've held too many times.
+    <br><br>
+    Every execution in this campaign is built around <strong>a moment the audience already knows.</strong> We're not explaining what Life Dash does. We're showing someone who already has it.
+  </div>
+</section>
+
+<!-- DIVIDER 1 -->
+<section class="divider" id="d1">
+  <div class="itag">Idea 01</div>
+  <h2>Medication &amp; Lab Results</h2>
+  <p class="desc">The broadest idea. Anyone managing long-term medication who has never been able to see whether it's working.</p>
+  <div class="bg-num">01</div>
+</section>
+
+<!-- 1A -->
+<section class="path-slide bg-dark" id="1a">
+  <div class="path-text">
+    <div class="path-label">Idea 01 · Path A</div>
+    <div class="path-title">See If It's Working</div>
+    <div class="path-body">No person. No demographic. No condition. Just the question that anyone on any long-term medication has had in the back of their mind for years — and a data visual that shows the answer exists.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea1-path-a.jpg" alt="Idea 1 Path A">
+  </div>
+</section>
+
+<!-- 1B -->
+<section class="path-slide flip bg-mid" id="1b">
+  <div class="path-text">
+    <div class="path-label">Idea 01 · Path B</div>
+    <div class="path-title">Your Medications. Your Results. Connected.</div>
+    <div class="path-body">We're in the kitchen — morning medications, coffee, phone on the counter. The shift here is from anxiety to agency.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea1-path-b.jpg" alt="Idea 1 Path B">
+  </div>
+</section>
+
+<!-- 1C -->
+<section class="path-slide bg-dark" id="1c">
+  <div class="path-text">
+    <div class="path-label">Idea 01 · Path C</div>
+    <div class="path-title">Six Portals. One Dashboard. Free.</div>
+    <div class="path-body">Before-and-after diptych — genuine chaos on the left, clean dashboard on the right. Anyone who has tried to manage their health across multiple providers will count to six in their head before they finish reading the headline.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea1-path-c.jpg" alt="Idea 1 Path C">
+  </div>
+</section>
+
+<!-- DIVIDER 2 -->
+<section class="divider" id="d2">
+  <div class="itag">Idea 02</div>
+  <h2>The GLP-1 Generation</h2>
+  <p class="desc">The most defined audience in the set. High intent, medically engaged, and almost completely underserved by existing tools.</p>
+  <div class="bg-num">02</div>
+</section>
+
+<!-- 2A -->
+<section class="path-slide flip bg-dark" id="2a">
+  <div class="path-text">
+    <div class="path-label">Idea 02 · Path A</div>
+    <div class="path-title">Beyond The Scale</div>
+    <div class="path-body">The whole market is obsessing over one number. Life Dash is the only product asking about everything else.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea2-path-a.jpg" alt="Idea 2 Path A">
+  </div>
+</section>
+
+<!-- 2B -->
+<section class="path-slide bg-mid" id="2b">
+  <div class="path-text">
+    <div class="path-label">Idea 02 · Path B</div>
+    <div class="path-title">Walk In Already Knowing</div>
+    <div class="path-body">A patient showing a doctor their own data. Shot from behind the patient — they're the one leading the conversation.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea2-path-b.jpg" alt="Idea 2 Path B">
+  </div>
+</section>
+
+<!-- 2C -->
+<section class="path-slide flip bg-dark" id="2c">
+  <div class="path-text">
+    <div class="path-label">Idea 02 · Path C</div>
+    <div class="path-title">What Is GLP-1 Doing?</div>
+    <div class="path-body">A close-up of a multi-line graph — four markers tracked together. One dips, the next follows. The headline is the question people are already Googling.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea2-path-c.jpg" alt="Idea 2 Path C">
+  </div>
+</section>
+
+<!-- DIVIDER 3 -->
+<section class="divider" id="d3">
+  <div class="itag">Idea 03</div>
+  <h2>Cholesterol Treadmill</h2>
+  <p class="desc">Targets a frustration nobody is currently advertising to. Millions of people take a statin every morning and have no idea if it's doing anything.</p>
+  <div class="bg-num">03</div>
+</section>
+
+<!-- 3A -->
+<section class="path-slide bg-mid" id="3a">
+  <div class="path-text">
+    <div class="path-label">Idea 03 · Path A</div>
+    <div class="path-title">Three Years. One Graph.</div>
+    <div class="path-body">A man at his kitchen table. Phone showing a two-year graph. Family photo blurred in the background.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea3-path-a.jpg" alt="Idea 3 Path A">
+  </div>
+</section>
+
+<!-- 3B -->
+<section class="path-slide flip bg-dark" id="3b">
+  <div class="path-text">
+    <div class="path-label">Idea 03 · Path B</div>
+    <div class="path-title">18 Months Of Truth</div>
+    <div class="path-body">A lab printout with a single number highlighted: 187. Next to a Life Dash graph showing where that number went over 18 months.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea3-path-b.jpg" alt="Idea 3 Path B">
+  </div>
+</section>
+
+<!-- 3C -->
+<section class="path-slide bg-mid" id="3c">
+  <div class="path-text">
+    <div class="path-label">Idea 03 · Path C</div>
+    <div class="path-title">No Waiting To Know</div>
+    <div class="path-body">The waiting room flipped. The anxiety is gone. She's sitting there comparing her new lab results to a trend she's been watching for a year.</div>
+  </div>
+  <div class="path-image">
+    <img src="images/idea3-path-c.jpg" alt="Idea 3 Path C">
+  </div>
+</section>
+
+</body>
+</html>
