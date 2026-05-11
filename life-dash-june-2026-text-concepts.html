@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Dash — June 2026 · Text &amp; Graphics Concepts</title>
+  <style>
+    @font-face {
+      font-family: 'Manrope';
+      src: url('fonts/Manrope-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('fonts/Manrope-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #1c2a3a;
+      padding: 48px 40px;
+    }
+    h1 {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 4px;
+    }
+    .meta { font-size: 11px; color: rgba(255,255,255,0.2); margin-bottom: 0; }
+    .section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.2);
+      margin: 52px 0 18px;
+    }
+    .grid { display: grid; grid-template-columns: repeat(3, 400px); gap: 24px; }
+    .path-label {
+      font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.18);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;
+    }
+
+    /* BASE CARD */
+    .ad {
+      width: 400px; height: 400px; border-radius: 16px; overflow: hidden;
+      position: relative; background: #2973cb;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      display: flex; flex-direction: column;
+    }
+    .ad::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.06) 100%);
+      border-radius: 16px;
+    }
+
+    .logo {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .logo-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+    .eyebrow {
+      font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 7px;
+    }
+    .hl {
+      font-size: 32px; font-weight: 700; line-height: 1.0;
+      letter-spacing: -0.025em; color: #fff; margin-bottom: 8px;
+    }
+    .sub {
+      font-size: 11px; font-weight: 400; line-height: 1.55;
+      color: rgba(255,255,255,0.6); margin-bottom: 16px;
+    }
+    .cta {
+      display: inline-block; padding: 8px 16px; background: #fff;
+      color: #2973cb; font-size: 9px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border-radius: 100px; text-decoration: none; white-space: nowrap;
+    }
+
+    .lt .copy-block { padding: 26px 26px 16px; }
+    .lt .graph-wrap { flex: 1; padding: 0 16px 20px; display: flex; align-items: flex-end; }
+    .lt .graph-wrap svg { width: 100%; }
+
+    .ls { flex-direction: row; }
+    .ls .copy-block {
+      flex: 0 0 48%; padding: 26px 16px 24px 26px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .ls .graph-wrap {
+      flex: 1; padding: 20px 20px 20px 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ls .graph-wrap svg { width: 100%; height: 100%; }
+
+    .lo { justify-content: flex-end; }
+    .lo .graph-wrap {
+      position: absolute; inset: 0;
+      padding: 24px 24px 110px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lo .graph-wrap svg { width: 100%; }
+    .lo .copy-block {
+      padding: 20px 26px 24px; position: relative; z-index: 2;
+      background: linear-gradient(to top, rgba(41,115,203,1) 60%, rgba(41,115,203,0));
+    }
+  </style>
+</head>
+<body>
+
+<h1>Life Dash · June 2026 — Text &amp; Graphics Concepts</h1>
+<p class="meta">8 ideas · 3 paths each · No photography · Theme: what changes when you track your health · Inspired by Thriva before/after proof format</p>
+
+
+<!-- ═══════════════════ IDEA 1 ═══════════════════ -->
+<div class="section-label">Idea 1 — Then vs Now: Two Data Cards</div>
+<div class="grid">
+
+  <!-- 1A -->
+  <div>
+    <div class="path-label">Path A · Side-by-side stat cards</div>
+    <div class="ad lt">
+      <div class="copy-block">
+        <div class="logo" style="margin-bottom:16px;"><div class="logo-dot"></div>Life Dash</div>
+        <div class="eyebrow">Before &amp; after tracking</div>
+        <div class="hl">The Number<br>That Told<br>The Truth</div>
+      </div>
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- THEN card -->
+          <rect x="8" y="6" width="145" height="152" rx="10" fill="rgba(0,0,0,0.22)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <text x="80" y="28" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.1em">JAN 2025</text>
+          <text x="80" y="62" fill="rgba(255,255,255,0.7)" font-size="30" font-family="Manrope" font-weight="700" text-anchor="middle">3.32</text>
+          <text x="80" y="76" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Manrope" text-anchor="middle">mmol/L</text>
+          <rect x="34" y="86" width="92" height="18" rx="9" fill="rgba(255,90,90,0.25)" stroke="rgba(255,110,110,0.45)" stroke-width="1"/>
+          <text x="80" y="99" fill="rgba(255,170,170,0.95)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.06em">⚠ ABNORMAL</text>
+          <text x="80" y="122" fill="rgba(255,255,255,0.25)" font-size="8" font-family="Manrope" text-anchor="middle">LDL Cholesterol</text>
+          <text x="80" y="140" fill="rgba(255,255,255,0.18)" font-size="7.5" font-family="Manrope" text-anchor="middle">No tracking</text>
+
+          <!-- Arrow -->
+          <text x="178" y="92" fill="rgba(255,255,255,0.65)" font-size="20" font-family="Manrope" font-weight="700" text-anchor="middle">→</text>
+
+          <!-- NOW card -->
+          <rect x="187" y="6" width="145" height="152" rx="10" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+          <text x="259" y="28" fill="rgba(255,255,255,0.55)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.1em">TODAY</text>
+          <text x="259" y="62" fill="#fff" font-size="30" font-family="Manrope" font-weight="700" text-anchor="middle">2.31</text>
+          <text x="259" y="76" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Manrope" text-anchor="middle">mmol/L</text>
+          <rect x="213" y="86" width="92" height="18" rx="9" fill="rgba(90,210,140,0.22)" stroke="rgba(90,210,140,0.5)" stroke-width="1"/>
+          <text x="259" y="99" fill="rgba(140,240,175,0.98)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.06em">✓ OPTIMAL</text>
+          <text x="259" y="122" fill="rgba(255,255,255,0.45)" font-size="8" font-family="Manrope" text-anchor="middle">LDL Cholesterol</text>
+          <text x="259" y="140" fill="rgba(255,255,255,0.32)" font-size="7.5" font-family="Manrope" text-anchor="middle">90 days tracked</text>
+        </svg>
+      </div>
+      <div style="padding:0 26px 20px; display:flex; align-items:center; justify-content:space-between;">
+        <div class="sub" style="margin-bottom:0; font-size:10px;">90 days of tracking. Here's what changed.</div>
+        <a class="cta" href="#" style="margin-left:12px;">See Yours</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1B -->
+  <div>
+    <div class="path-label">Path B · Stacked reveal</div>
+    <div class="ad ls">
+      <div class="copy-block">
+        <div>
+          <div class="logo" style="margin-bottom:18px;"><div class="logo-dot"></div>Life Dash</div>
+          <div class="eyebrow">Your results</div>
+          <div class="hl" style="font-size:26px;">Same test.<br>Different<br>Number.</div>
+          <div class="sub">6 months apart. Tracked the whole way.</div>
+        </div>
+        <a class="cta" href="#">Track Yours</a>
+      </div>
+      <div class="graph-wrap">
+        <svg viewBox="0 0 160 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- THEN card -->
+          <rect x="8" y="16" width="144" height="112" rx="10" fill="rgba(0,0,0,0.22)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <text x="80" y="38" fill="rgba(255,255,255,0.35)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.1em">6 MONTHS AGO</text>
+          <text x="80" y="72" fill="rgba(255,255,255,0.7)" font-size="30" font-family="Manrope" font-weight="700" text-anchor="middle">142/91</text>
+          <text x="80" y="86" fill="rgba(255,255,255,0.3)" font-size="7.5" font-family="Manrope" text-anchor="middle">Blood Pressure</text>
+          <rect x="34" y="97" width="92" height="16" rx="8" fill="rgba(255,90,90,0.22)" stroke="rgba(255,110,110,0.4)" stroke-width="1"/>
+          <text x="80" y="109" fill="rgba(255,170,170,0.95)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.05em">⚠ HIGH</text>
+          <!-- Connector -->
+          <line x1="80" y1="128" x2="80" y2="172" stroke="rgba(255,255,255,0.18)" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="80" y="158" fill="rgba(255,255,255,0.4)" font-size="20" font-family="Manrope" font-weight="700" text-anchor="middle">↓</text>
+          <!-- NOW card -->
+          <rect x="8" y="172" width="144" height="112" rx="10" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.42)" stroke-width="1.5"/>
+          <text x="80" y="194" fill="rgba(255,255,255,0.52)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.1em">TODAY</text>
+          <text x="80" y="228" fill="#fff" font-size="30" font-family="Manrope" font-weight="700" text-anchor="middle">118/76</text>
+          <text x="80" y="242" fill="rgba(255,255,255,0.42)" font-size="7.5" font-family="Manrope" text-anchor="middle">Blood Pressure</text>
+          <rect x="34" y="254" width="92" height="16" rx="8" fill="rgba(90,210,140,0.2)" stroke="rgba(90,210,140,0.45)" stroke-width="1"/>
+          <text x="80" y="266" fill="rgba(140,240,175,0.98)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.05em">✓ OPTIMAL</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1C -->
+  <div>
+    <div class="path-label">Path C · Giant number contrast</div>
+    <div class="ad lo">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="20" y="52" fill="rgba(255,255,255,0.14)" font-size="55" font-family="Manrope" font-weight="700" letter-spacing="-0.04em">THEN</text>
+          <text x="20" y="138" fill="rgba(255,255,255,0.35)" font-size="88" font-family="Manrope" font-weight="700" letter-spacing="-0.05em">3.32</text>
+          <line x1="20" y1="152" x2="320" y2="152" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+          <text x="20" y="204" fill="rgba(255,255,255,0.38)" font-size="55" font-family="Manrope" font-weight="700" letter-spacing="-0.04em">NOW</text>
+          <text x="145" y="272" fill="#fff" font-size="88" font-family="Manrope" font-weight="700" letter-spacing="-0.05em">2.31</text>
+          <text x="20" y="272" fill="rgba(255,255,255,0.25)" font-size="9.5" font-family="Manrope" font-weight="600" letter-spacing="0.1em">LDL · mmol/L</text>
+        </svg>
+      </div>
+      <div class="copy-block">
+        <div class="eyebrow">90 days. One habit. This result.</div>
+        <div class="hl" style="font-size:24px;">Your data tells<br>the whole story.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          <div class="sub" style="margin-bottom:0;font-size:10px;">Track it with Life Dash. Free.</div>
+          <a class="cta" href="#" style="margin-left:12px;">Start Tracking</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════ IDEA 2 ═══════════════════ -->
+<div class="section-label">Idea 2 — Big Number Typography</div>
+<div class="grid">
+
+  <!-- 2A -->
+  <div>
+    <div class="path-label">Path A · Numbers lead with chart</div>
+    <div class="ad lt">
+      <div class="copy-block">
+        <div class="logo" style="margin-bottom:12px;"><div class="logo-dot"></div>Life Dash</div>
+        <div class="eyebrow" style="margin-bottom:10px;">Blood pressure · 6 months apart</div>
+        <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:6px;">
+          <span style="font-size:50px; font-weight:700; color:rgba(255,255,255,0.32); letter-spacing:-0.04em; line-height:1;">142</span>
+          <span style="font-size:26px; font-weight:700; color:rgba(255,255,255,0.28); line-height:1;">→</span>
+          <span style="font-size:50px; font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1;">118</span>
+        </div>
+        <div class="sub" style="margin-bottom:0;">Systolic. Tracked every week.</div>
+      </div>
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="92" x2="340" y2="92" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <line x1="0" y1="62" x2="340" y2="62" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <line x1="0" y1="32" x2="340" y2="32" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <path d="M10,20 C40,23 70,30 115,46 C155,60 195,72 235,80 C272,87 300,91 330,93" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M10,20 C40,23 70,30 115,46 C155,60 195,72 235,80 C272,87 300,91 330,93 L330,92 L10,92Z" fill="rgba(255,255,255,0.06)"/>
+          <circle cx="10" cy="20" r="5" fill="rgba(255,90,90,0.7)" stroke="#fff" stroke-width="1.5"/>
+          <circle cx="330" cy="93" r="5" fill="rgba(90,210,140,0.8)" stroke="#fff" stroke-width="1.5"/>
+          <text x="8" y="108" fill="rgba(255,255,255,0.28)" font-size="7.5" font-family="Manrope">M1</text>
+          <text x="170" y="108" fill="rgba(255,255,255,0.28)" font-size="7.5" font-family="Manrope" text-anchor="middle">M3</text>
+          <text x="322" y="108" fill="rgba(255,255,255,0.28)" font-size="7.5" font-family="Manrope" text-anchor="end">M6</text>
+          <text x="170" y="52" fill="rgba(255,255,255,0.48)" font-size="9" font-family="Manrope" font-weight="700">↓ 17%</text>
+        </svg>
+      </div>
+      <div style="padding:0 26px 20px; display:flex; align-items:center; justify-content:space-between;">
+        <div class="sub" style="margin-bottom:0; font-size:10px;">Not a feeling. A fact.</div>
+        <a class="cta" href="#" style="margin-left:12px;">See Your Numbers</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2B -->
+  <div>
+    <div class="path-label">Path B · Before / after stacked numbers</div>
+    <div class="ad ls">
+      <div class="copy-block">
+        <div>
+          <div class="logo" style="margin-bottom:18px;"><div class="logo-dot"></div>Life Dash</div>
+          <div class="eyebrow">HbA1c · 12 months</div>
+          <div class="hl" style="font-size:24px;">Not a<br>feeling.<br>A fact.</div>
+          <div class="sub" style="font-size:10px;">Track the number. Change the habit. Watch what happens.</div>
+        </div>
+        <a class="cta" href="#">Track It</a>
+      </div>
+      <div class="graph-wrap">
+        <svg viewBox="0 0 160 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="24" width="140" height="112" rx="10" fill="rgba(0,0,0,0.22)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <text x="80" y="46" fill="rgba(255,255,255,0.32)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.1em">JAN 2025</text>
+          <text x="80" y="92" fill="rgba(255,255,255,0.6)" font-size="46" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="-0.03em">7.8</text>
+          <text x="80" y="112" fill="rgba(255,90,90,0.8)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="middle">Prediabetic range</text>
+          <!-- Arrow -->
+          <text x="80" y="162" fill="rgba(255,255,255,0.5)" font-size="28" font-family="Manrope" font-weight="700" text-anchor="middle">↓</text>
+          <!-- NOW card -->
+          <rect x="10" y="178" width="140" height="112" rx="10" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <text x="80" y="200" fill="rgba(255,255,255,0.52)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.1em">JAN 2026</text>
+          <text x="80" y="246" fill="#fff" font-size="46" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="-0.03em">5.6</text>
+          <text x="80" y="266" fill="rgba(140,240,175,0.88)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="middle">✓ Normal range</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2C -->
+  <div>
+    <div class="path-label">Path C · Giant faded contrast</div>
+    <div class="ad lo">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="16" y="130" fill="rgba(255,255,255,0.1)" font-size="130" font-family="Manrope" font-weight="700" letter-spacing="-0.06em">187</text>
+          <text x="155" y="188" fill="rgba(255,255,255,0.45)" font-size="36" font-family="Manrope" font-weight="700">↓</text>
+          <text x="16" y="270" fill="#fff" font-size="130" font-family="Manrope" font-weight="700" letter-spacing="-0.06em">114</text>
+          <text x="20" y="148" fill="rgba(255,255,255,0.22)" font-size="10" font-family="Manrope" font-weight="600" letter-spacing="0.12em">LDL CHOLESTEROL · mg/dL</text>
+        </svg>
+      </div>
+      <div class="copy-block">
+        <div class="eyebrow">18 months of data</div>
+        <div class="hl" style="font-size:26px;">This is what<br>progress looks like.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          <div class="sub" style="margin-bottom:0;font-size:10px;">Not a feeling. A number. Track it free.</div>
+          <a class="cta" href="#" style="margin-left:12px;">Start Free</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════ IDEA 3 ═══════════════════ -->
+<div class="section-label">Idea 3 — The Results Card</div>
+<div class="grid">
+
+  <!-- 3A -->
+  <div>
+    <div class="path-label">Path A · Checklist card</div>
+    <div class="ad lt">
+      <div class="copy-block">
+        <div class="logo" style="margin-bottom:14px;"><div class="logo-dot"></div>Life Dash</div>
+        <div class="eyebrow">6 months of tracking</div>
+        <div class="hl">All Of This.</div>
+        <div class="sub">Track your markers. See what moves.</div>
+      </div>
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="6" width="320" height="150" rx="12" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <!-- Row 1 -->
+          <circle cx="36" cy="38" r="9" fill="rgba(90,210,140,0.28)" stroke="rgba(90,210,140,0.6)" stroke-width="1"/>
+          <text x="36" y="42" fill="rgba(140,240,175,1)" font-size="9" font-family="Manrope" font-weight="700" text-anchor="middle">✓</text>
+          <text x="57" y="42" fill="rgba(255,255,255,0.88)" font-size="11.5" font-family="Manrope" font-weight="700">Cholesterol</text>
+          <text x="318" y="42" fill="rgba(140,240,175,0.92)" font-size="11.5" font-family="Manrope" font-weight="700" text-anchor="end">↓ 18%</text>
+          <line x1="24" y1="56" x2="316" y2="56" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <!-- Row 2 -->
+          <circle cx="36" cy="76" r="9" fill="rgba(90,210,140,0.28)" stroke="rgba(90,210,140,0.6)" stroke-width="1"/>
+          <text x="36" y="80" fill="rgba(140,240,175,1)" font-size="9" font-family="Manrope" font-weight="700" text-anchor="middle">✓</text>
+          <text x="57" y="80" fill="rgba(255,255,255,0.88)" font-size="11.5" font-family="Manrope" font-weight="700">Resting Heart Rate</text>
+          <text x="318" y="80" fill="rgba(140,240,175,0.92)" font-size="11.5" font-family="Manrope" font-weight="700" text-anchor="end">↓ 11 bpm</text>
+          <line x1="24" y1="94" x2="316" y2="94" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <!-- Row 3 -->
+          <circle cx="36" cy="114" r="9" fill="rgba(90,210,140,0.28)" stroke="rgba(90,210,140,0.6)" stroke-width="1"/>
+          <text x="36" y="118" fill="rgba(140,240,175,1)" font-size="9" font-family="Manrope" font-weight="700" text-anchor="middle">✓</text>
+          <text x="57" y="118" fill="rgba(255,255,255,0.88)" font-size="11.5" font-family="Manrope" font-weight="700">Blood Pressure</text>
+          <text x="318" y="118" fill="rgba(140,240,175,0.92)" font-size="11.5" font-family="Manrope" font-weight="700" text-anchor="end">Optimal</text>
+          <line x1="24" y1="132" x2="316" y2="132" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <!-- Row 4 -->
+          <circle cx="36" cy="149" r="9" fill="rgba(90,210,140,0.28)" stroke="rgba(90,210,140,0.6)" stroke-width="1"/>
+          <text x="36" y="153" fill="rgba(140,240,175,1)" font-size="9" font-family="Manrope" font-weight="700" text-anchor="middle">✓</text>
+          <text x="57" y="153" fill="rgba(255,255,255,0.88)" font-size="11.5" font-family="Manrope" font-weight="700">HbA1c</text>
+          <text x="318" y="153" fill="rgba(140,240,175,0.92)" font-size="11.5" font-family="Manrope" font-weight="700" text-anchor="end">Normal</text>
+        </svg>
+      </div>
+      <div style="padding:0 26px 20px; display:flex; align-items:center; justify-content:space-between;">
+        <div class="sub" style="margin-bottom:0; font-size:10px;">You can't manage what you can't see.</div>
+        <a class="cta" href="#" style="margin-left:12px;">Start Free</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3B -->
+  <div>
+    <div class="path-label">Path B · Dashboard progress bars</div>
+    <div class="ad ls">
+      <div class="copy-block">
+        <div>
+          <div class="logo" style="margin-bottom:18px;"><div class="logo-dot"></div>Life Dash</div>
+          <div class="eyebrow">Your markers</div>
+          <div class="hl" style="font-size:26px;">6 Months.<br>One App.<br>All of This.</div>
+        </div>
+        <a class="cta" href="#">See Your Story</a>
+      </div>
+      <div class="graph-wrap">
+        <svg viewBox="0 0 160 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="10" width="152" height="280" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+          <text x="80" y="34" fill="rgba(255,255,255,0.38)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.08em">YOUR RESULTS</text>
+          <!-- Metric 1 -->
+          <text x="18" y="57" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Manrope" font-weight="600" letter-spacing="0.05em">CHOLESTEROL</text>
+          <rect x="18" y="62" width="124" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+          <rect x="18" y="62" width="58" height="6" rx="3" fill="rgba(90,210,140,0.7)"/>
+          <text x="144" y="68" fill="rgba(140,240,175,0.9)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end">↓18%</text>
+          <!-- Metric 2 -->
+          <text x="18" y="91" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Manrope" font-weight="600" letter-spacing="0.05em">RESTING HR</text>
+          <rect x="18" y="96" width="124" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+          <rect x="18" y="96" width="78" height="6" rx="3" fill="rgba(90,210,140,0.7)"/>
+          <text x="144" y="102" fill="rgba(140,240,175,0.9)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end">↓11</text>
+          <!-- Metric 3 -->
+          <text x="18" y="125" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Manrope" font-weight="600" letter-spacing="0.05em">BLOOD PRESSURE</text>
+          <rect x="18" y="130" width="124" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+          <rect x="18" y="130" width="108" height="6" rx="3" fill="rgba(90,210,140,0.7)"/>
+          <text x="144" y="136" fill="rgba(140,240,175,0.9)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end">✓</text>
+          <!-- Metric 4 -->
+          <text x="18" y="159" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Manrope" font-weight="600" letter-spacing="0.05em">HbA1c</text>
+          <rect x="18" y="164" width="124" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+          <rect x="18" y="164" width="90" height="6" rx="3" fill="rgba(90,210,140,0.7)"/>
+          <text x="144" y="170" fill="rgba(140,240,175,0.9)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end">✓</text>
+          <!-- Metric 5 -->
+          <text x="18" y="193" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Manrope" font-weight="600" letter-spacing="0.05em">WEIGHT TREND</text>
+          <rect x="18" y="198" width="124" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+          <rect x="18" y="198" width="70" height="6" rx="3" fill="rgba(90,210,140,0.7)"/>
+          <text x="144" y="204" fill="rgba(140,240,175,0.9)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end">↓8lb</text>
+          <line x1="18" y1="222" x2="142" y2="222" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="80" y="240" fill="rgba(255,255,255,0.28)" font-size="7" font-family="Manrope" text-anchor="middle">6 months of tracking</text>
+          <text x="80" y="256" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Manrope" font-weight="700" text-anchor="middle">All results improving</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3C -->
+  <div>
+    <div class="path-label">Path C · Full card overlay</div>
+    <div class="ad lo">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 272" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="18" y="8" width="304" height="258" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+          <text x="170" y="36" fill="rgba(255,255,255,0.38)" font-size="8.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.1em">LIFE DASH · YOUR RESULTS</text>
+          <line x1="34" y1="46" x2="306" y2="46" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <!-- Rows -->
+          <text x="40" y="74" fill="rgba(255,255,255,0.7)" font-size="12" font-family="Manrope" font-weight="600">Cholesterol (LDL)</text>
+          <text x="300" y="74" fill="rgba(140,240,175,0.95)" font-size="12" font-family="Manrope" font-weight="700" text-anchor="end">↓ 18%</text>
+          <line x1="34" y1="84" x2="306" y2="84" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <text x="40" y="110" fill="rgba(255,255,255,0.7)" font-size="12" font-family="Manrope" font-weight="600">Resting Heart Rate</text>
+          <text x="300" y="110" fill="rgba(140,240,175,0.95)" font-size="12" font-family="Manrope" font-weight="700" text-anchor="end">↓ 11 bpm</text>
+          <line x1="34" y1="120" x2="306" y2="120" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <text x="40" y="146" fill="rgba(255,255,255,0.7)" font-size="12" font-family="Manrope" font-weight="600">Blood Pressure</text>
+          <text x="300" y="146" fill="rgba(140,240,175,0.95)" font-size="12" font-family="Manrope" font-weight="700" text-anchor="end">Optimal</text>
+          <line x1="34" y1="156" x2="306" y2="156" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <text x="40" y="182" fill="rgba(255,255,255,0.7)" font-size="12" font-family="Manrope" font-weight="600">HbA1c</text>
+          <text x="300" y="182" fill="rgba(140,240,175,0.95)" font-size="12" font-family="Manrope" font-weight="700" text-anchor="end">Normal</text>
+          <line x1="34" y1="192" x2="306" y2="192" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <text x="40" y="218" fill="rgba(255,255,255,0.7)" font-size="12" font-family="Manrope" font-weight="600">Weight Trend</text>
+          <text x="300" y="218" fill="rgba(140,240,175,0.95)" font-size="12" font-family="Manrope" font-weight="700" text-anchor="end">↓ 8 lb</text>
+          <line x1="34" y1="228" x2="306" y2="228" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="170" y="250" fill="rgba(255,255,255,0.3)" font-size="8.5" font-family="Manrope" text-anchor="middle">Tracked over 6 months · Life Dash</text>
+        </svg>
+      </div>
+      <div class="copy-block">
+        <div class="eyebrow">The proof is in the data</div>
+        <div class="hl" style="font-size:24px;">You can't manage<br>what you can't see.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          <div class="sub" style="margin-bottom:0;font-size:10px;">Free health tracking. One dashboard.</div>
+          <a class="cta" href="#" style="margin-left:12px;">Start Free</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════ IDEA 4 ═══════════════════ -->
+<div class="section-label">Idea 4 — Before / After Split · All Text</div>
+<div class="grid">
+
+  <!-- 4A -->
+  <div>
+    <div class="path-label">Path A · Vertical split</div>
+    <div class="ad" style="flex-direction:row;">
+      <div style="flex:1; background:rgba(0,0,0,0.28); padding:30px 20px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-size:8px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-bottom:18px;">BEFORE</div>
+        <div style="font-size:17px; font-weight:700; color:rgba(255,255,255,0.42); line-height:1.3; margin-bottom:12px;">You guessed.</div>
+        <div style="font-size:17px; font-weight:700; color:rgba(255,255,255,0.42); line-height:1.3; margin-bottom:12px;">You hoped.</div>
+        <div style="font-size:17px; font-weight:700; color:rgba(255,255,255,0.42); line-height:1.3;">You waited for the annual checkup.</div>
+      </div>
+      <div style="flex:1; background:rgba(255,255,255,0.1); padding:30px 20px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <div style="font-size:8px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.52); margin-bottom:18px;">AFTER</div>
+          <div style="font-size:17px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:12px;">You knew.</div>
+          <div style="font-size:17px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:12px;">In real time.</div>
+          <div style="font-size:17px; font-weight:700; color:#fff; line-height:1.3;">Every marker.<br>Every change.</div>
+        </div>
+        <div>
+          <div class="logo" style="margin-bottom:10px;"><div class="logo-dot"></div>Life Dash</div>
+          <a class="cta" href="#">Start Knowing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4B -->
+  <div>
+    <div class="path-label">Path B · Diagonal contrast</div>
+    <div class="ad" style="position:relative; overflow:hidden;">
+      <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.22); clip-path:polygon(0 0, 100% 0, 0 100%);"></div>
+      <div style="position:relative; z-index:2; padding:28px 26px; display:flex; flex-direction:column; height:100%; justify-content:space-between;">
+        <div>
+          <div style="font-size:8px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-bottom:10px;">BEFORE TRACKING</div>
+          <div style="font-size:19px; font-weight:700; color:rgba(255,255,255,0.38); line-height:1.2; max-width:165px;">Annual checkup.<br>No story<br>in between.</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:8px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:10px;">AFTER TRACKING</div>
+          <div style="font-size:22px; font-weight:700; color:#fff; line-height:1.1; margin-bottom:18px;">365 days<br>of knowing<br>exactly why.</div>
+          <div class="logo" style="justify-content:flex-end; margin-bottom:10px;"><div class="logo-dot"></div>Life Dash</div>
+          <a class="cta" href="#">Know Your Numbers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4C -->
+  <div>
+    <div class="path-label">Path C · Three-act stacked</div>
+    <div class="ad" style="padding:32px 30px; justify-content:center;">
+      <div class="logo" style="margin-bottom:26px;"><div class="logo-dot"></div>Life Dash</div>
+      <div style="border-left:2px solid rgba(255,255,255,0.18); padding-left:16px; margin-bottom:20px;">
+        <div style="font-size:8px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-bottom:5px;">Without tracking</div>
+        <div style="font-size:17px; font-weight:700; color:rgba(255,255,255,0.38); line-height:1.25;">One number,<br>once a year,<br>out of context.</div>
+      </div>
+      <div style="border-left:2px solid rgba(255,255,255,0.65); padding-left:16px; margin-bottom:28px;">
+        <div style="font-size:8px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:5px;">With Life Dash</div>
+        <div style="font-size:17px; font-weight:700; color:#fff; line-height:1.25;">Every result.<br>Every change.<br>Your full story.</div>
+      </div>
+      <a class="cta" href="#">See Your Story</a>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════ IDEA 5 ═══════════════════ -->
+<div class="section-label">Idea 5 — The Cascade Timeline</div>
+<div class="grid">
+
+  <!-- 5A -->
+  <div>
+    <div class="path-label">Path A · Vertical steps</div>
+    <div class="ad lt">
+      <div class="copy-block">
+        <div class="logo" style="margin-bottom:14px;"><div class="logo-dot"></div>Life Dash</div>
+        <div class="eyebrow">What tracking shows you</div>
+        <div class="hl" style="font-size:30px;">What Changes<br>First.</div>
+      </div>
+      <div class="graph-wrap" style="align-items:center;">
+        <svg viewBox="0 0 340 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="36" y1="10" x2="36" y2="154" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <!-- Step 1 -->
+          <circle cx="36" cy="28" r="8" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+          <text x="36" y="32" fill="#fff" font-size="7" font-family="Manrope" font-weight="700" text-anchor="middle">30d</text>
+          <text x="55" y="24" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Manrope" font-weight="700" letter-spacing="0.08em">DAYS</text>
+          <text x="55" y="36" fill="#fff" font-size="11.5" font-family="Manrope" font-weight="700">Sleep quality improves</text>
+          <!-- Step 2 -->
+          <circle cx="36" cy="72" r="8" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.58)" stroke-width="1.5"/>
+          <text x="36" y="76" fill="#fff" font-size="7" font-family="Manrope" font-weight="700" text-anchor="middle">60d</text>
+          <text x="55" y="68" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Manrope" font-weight="700" letter-spacing="0.08em">DAYS</text>
+          <text x="55" y="80" fill="#fff" font-size="11.5" font-family="Manrope" font-weight="700">Blood pressure normalises</text>
+          <!-- Step 3 -->
+          <circle cx="36" cy="116" r="8" fill="rgba(255,255,255,0.48)" stroke="rgba(255,255,255,0.78)" stroke-width="1.5"/>
+          <text x="36" y="120" fill="#fff" font-size="7" font-family="Manrope" font-weight="700" text-anchor="middle">90d</text>
+          <text x="55" y="112" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Manrope" font-weight="700" letter-spacing="0.08em">DAYS</text>
+          <text x="55" y="124" fill="#fff" font-size="11.5" font-family="Manrope" font-weight="700">Cholesterol follows</text>
+          <!-- Step 4 -->
+          <circle cx="36" cy="154" r="10" fill="#fff"/>
+          <text x="36" y="158" fill="#2973cb" font-size="6.5" font-family="Manrope" font-weight="700" text-anchor="middle">6M</text>
+          <text x="55" y="150" fill="rgba(255,255,255,0.52)" font-size="7.5" font-family="Manrope" font-weight="700" letter-spacing="0.08em">MONTHS</text>
+          <text x="55" y="162" fill="#fff" font-size="11.5" font-family="Manrope" font-weight="700">The full picture</text>
+        </svg>
+      </div>
+      <div style="padding:0 26px 20px; display:flex; align-items:center; justify-content:space-between;">
+        <div class="sub" style="margin-bottom:0; font-size:10px;">Track it. Connect the dots.</div>
+        <a class="cta" href="#" style="margin-left:12px;">Start Tracking</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5B -->
+  <div>
+    <div class="path-label">Path B · Horizontal journey</div>
+    <div class="ad" style="flex-direction:column; padding:28px 26px 22px;">
+      <div class="logo" style="margin-bottom:18px;"><div class="logo-dot"></div>Life Dash</div>
+      <div class="eyebrow" style="margin-bottom:8px;">Tracking changes you</div>
+      <div class="hl" style="font-size:30px; margin-bottom:20px;">The Order<br>Things Change.</div>
+      <svg viewBox="0 0 348 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+        <line x1="16" y1="36" x2="332" y2="36" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <!-- Node 1 -->
+        <circle cx="16" cy="36" r="7" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.48)" stroke-width="1.5"/>
+        <text x="16" y="56" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.06em">30D</text>
+        <text x="16" y="68" fill="rgba(255,255,255,0.88)" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">Sleep</text>
+        <text x="16" y="80" fill="rgba(255,255,255,0.88)" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">quality</text>
+        <!-- Node 2 -->
+        <circle cx="116" cy="36" r="7" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.58)" stroke-width="1.5"/>
+        <text x="116" y="56" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.06em">60D</text>
+        <text x="116" y="68" fill="rgba(255,255,255,0.88)" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">Blood</text>
+        <text x="116" y="80" fill="rgba(255,255,255,0.88)" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">pressure</text>
+        <!-- Node 3 -->
+        <circle cx="216" cy="36" r="7" fill="rgba(255,255,255,0.42)" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+        <text x="216" y="56" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.06em">90D</text>
+        <text x="216" y="68" fill="#fff" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">Choles-</text>
+        <text x="216" y="80" fill="#fff" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">terol</text>
+        <!-- Node 4 -->
+        <circle cx="332" cy="36" r="10" fill="#fff"/>
+        <text x="332" y="56" fill="rgba(255,255,255,0.55)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.06em">6M</text>
+        <text x="332" y="68" fill="#fff" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">Full</text>
+        <text x="332" y="80" fill="#fff" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">picture</text>
+        <!-- Arrows -->
+        <text x="66" y="41" fill="rgba(255,255,255,0.28)" font-size="11" font-family="Manrope" text-anchor="middle">→</text>
+        <text x="166" y="41" fill="rgba(255,255,255,0.28)" font-size="11" font-family="Manrope" text-anchor="middle">→</text>
+        <text x="274" y="41" fill="rgba(255,255,255,0.28)" font-size="11" font-family="Manrope" text-anchor="middle">→</text>
+      </svg>
+      <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; padding-top:16px;">
+        <div class="sub" style="margin-bottom:0; font-size:10px;">Life Dash connects the dots.</div>
+        <a class="cta" href="#">Start Today</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5C -->
+  <div>
+    <div class="path-label">Path C · Cascade multi-line chart</div>
+    <div class="ad lo">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 258" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="238" x2="340" y2="238" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <line x1="0" y1="188" x2="340" y2="188" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <line x1="0" y1="138" x2="340" y2="138" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <line x1="0" y1="88" x2="340" y2="88" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <!-- Sleep — first to move -->
+          <path d="M10,98 C30,97 52,96 72,118 C92,140 112,168 142,188 C172,208 212,218 282,223 C300,224 316,225 330,225" stroke="rgba(255,255,255,0.38)" stroke-width="2"/>
+          <text x="12" y="92" fill="rgba(255,255,255,0.38)" font-size="8" font-family="Manrope" font-weight="600">SLEEP</text>
+          <!-- Blood pressure — 30d later -->
+          <path d="M10,78 C50,78 82,78 112,88 C142,100 167,138 197,170 C222,194 262,213 330,218" stroke="rgba(255,255,255,0.58)" stroke-width="2"/>
+          <text x="12" y="72" fill="rgba(255,255,255,0.58)" font-size="8" font-family="Manrope" font-weight="600">BLOOD PRESSURE</text>
+          <!-- Cholesterol — 60d later -->
+          <path d="M10,58 C60,58 102,58 142,60 C177,63 202,86 232,126 C257,158 287,188 330,203" stroke="#fff" stroke-width="2.5"/>
+          <circle cx="10" cy="58" r="3.5" fill="#fff"/>
+          <text x="12" y="52" fill="rgba(255,255,255,0.88)" font-size="8" font-family="Manrope" font-weight="700">CHOLESTEROL</text>
+          <!-- HbA1c — last -->
+          <path d="M10,38 C70,38 112,38 162,40 C202,42 227,60 257,98 C280,128 307,166 330,183" stroke="rgba(255,255,255,0.42)" stroke-width="1.5"/>
+          <text x="12" y="32" fill="rgba(255,255,255,0.42)" font-size="8" font-family="Manrope" font-weight="600">HbA1c</text>
+          <!-- Month labels -->
+          <text x="8" y="252" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope">M1</text>
+          <text x="78" y="252" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope">M2</text>
+          <text x="158" y="252" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope">M3</text>
+          <text x="238" y="252" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope">M5</text>
+          <text x="308" y="252" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope">M6</text>
+        </svg>
+      </div>
+      <div class="copy-block">
+        <div class="eyebrow">The cascade</div>
+        <div class="hl" style="font-size:24px;">Tracking shows you<br>what changes first.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          <div class="sub" style="margin-bottom:0;font-size:10px;">Life Dash. Free health tracking.</div>
+          <a class="cta" href="#" style="margin-left:12px;">Start Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════ IDEA 6 ═══════════════════ -->
+<div class="section-label">Idea 6 — What You Felt vs What Your Data Said</div>
+<div class="grid">
+
+  <!-- 6A -->
+  <div>
+    <div class="path-label">Path A · Two-column comparison</div>
+    <div class="ad" style="flex-direction:column; padding:26px 26px 22px;">
+      <div class="logo" style="margin-bottom:16px;"><div class="logo-dot"></div>Life Dash</div>
+      <div class="eyebrow" style="margin-bottom:8px;">The gap you don't know about</div>
+      <div class="hl" style="font-size:26px; margin-bottom:16px;">Feeling healthy<br>≠ being healthy.</div>
+      <svg viewBox="0 0 348 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+        <rect x="0" y="0" width="165" height="20" rx="4" fill="rgba(255,255,255,0.1)"/>
+        <text x="82" y="14" fill="rgba(255,255,255,0.45)" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.08em">WHAT YOU FELT</text>
+        <rect x="183" y="0" width="165" height="20" rx="4" fill="rgba(255,255,255,0.18)"/>
+        <text x="265" y="14" fill="#fff" font-size="7.5" font-family="Manrope" font-weight="700" text-anchor="middle" letter-spacing="0.08em">WHAT DATA SAID</text>
+        <!-- Row 1 -->
+        <text x="82" y="42" fill="rgba(255,255,255,0.48)" font-size="11" font-family="Manrope" font-weight="600" text-anchor="middle">Fine</text>
+        <text x="265" y="42" fill="rgba(255,155,155,0.92)" font-size="11" font-family="Manrope" font-weight="700" text-anchor="middle">LDL: Abnormal</text>
+        <line x1="0" y1="52" x2="165" y2="52" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <line x1="183" y1="52" x2="348" y2="52" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <!-- Row 2 -->
+        <text x="82" y="74" fill="rgba(255,255,255,0.48)" font-size="11" font-family="Manrope" font-weight="600" text-anchor="middle">A bit tired</text>
+        <text x="265" y="74" fill="rgba(255,155,155,0.92)" font-size="11" font-family="Manrope" font-weight="700" text-anchor="middle">HbA1c creeping</text>
+        <line x1="0" y1="84" x2="165" y2="84" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <line x1="183" y1="84" x2="348" y2="84" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <!-- Row 3 -->
+        <text x="82" y="106" fill="rgba(255,255,255,0.48)" font-size="11" font-family="Manrope" font-weight="600" text-anchor="middle">Exercising well</text>
+        <text x="265" y="106" fill="rgba(255,155,155,0.92)" font-size="11" font-family="Manrope" font-weight="700" text-anchor="middle">BP: Borderline</text>
+        <!-- Divider line -->
+        <line x1="174" y1="0" x2="174" y2="130" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+        <text x="174" y="72" fill="rgba(255,255,255,0.35)" font-size="11" font-family="Manrope" text-anchor="middle">vs</text>
+      </svg>
+      <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; padding-top:14px;">
+        <div class="sub" style="margin-bottom:0; font-size:10px;">Your data knows before you do.</div>
+        <a class="cta" href="#">Know Yours</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6B -->
+  <div>
+    <div class="path-label">Path B · Quote-style statement</div>
+    <div class="ad" style="padding:32px 30px; justify-content:center;">
+      <div class="logo" style="margin-bottom:26px;"><div class="logo-dot"></div>Life Dash</div>
+      <div style="font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.38); margin-bottom:10px;">Most people think:</div>
+      <div style="font-size:21px; font-weight:700; color:rgba(255,255,255,0.4); line-height:1.2; margin-bottom:26px; padding-left:14px; border-left:2px solid rgba(255,255,255,0.18);">"I feel fine.<br>My health must<br>be fine too."</div>
+      <div style="font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.68); margin-bottom:10px;">Your data says:</div>
+      <div style="font-size:21px; font-weight:700; color:#fff; line-height:1.2; margin-bottom:26px; padding-left:14px; border-left:2px solid rgba(255,255,255,0.8);">Not always.<br>Here's what<br>tracking found.</div>
+      <a class="cta" href="#">See What's Really Going On</a>
+    </div>
+  </div>
+
+  <!-- 6C -->
+  <div>
+    <div class="path-label">Path C · Perception gap visual</div>
+    <div class="ad lo">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 255" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Perceived bar -->
+          <text x="20" y="45" fill="rgba(255,255,255,0.38)" font-size="8.5" font-family="Manrope" font-weight="700" letter-spacing="0.08em">HOW YOU FEEL</text>
+          <rect x="20" y="52" width="300" height="24" rx="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+          <rect x="20" y="52" width="252" height="24" rx="6" fill="rgba(255,255,255,0.24)"/>
+          <text x="258" y="69" fill="rgba(255,255,255,0.78)" font-size="11" font-family="Manrope" font-weight="700">84%</text>
+          <!-- Data bar -->
+          <text x="20" y="105" fill="rgba(255,255,255,0.62)" font-size="8.5" font-family="Manrope" font-weight="700" letter-spacing="0.08em">WHAT YOUR DATA SHOWS</text>
+          <rect x="20" y="112" width="300" height="24" rx="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+          <rect x="20" y="112" width="150" height="24" rx="6" fill="rgba(255,90,90,0.45)"/>
+          <text x="158" y="129" fill="rgba(255,200,200,0.92)" font-size="11" font-family="Manrope" font-weight="700">51%</text>
+          <!-- Gap annotation -->
+          <line x1="152" y1="76" x2="152" y2="112" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="252" y1="76" x2="252" y2="112" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3 3"/>
+          <rect x="158" y="84" width="80" height="20" rx="4" fill="rgba(255,255,255,0.12)"/>
+          <text x="198" y="98" fill="#fff" font-size="9" font-family="Manrope" font-weight="700" text-anchor="middle">33% gap</text>
+          <!-- Arrow + note -->
+          <text x="170" y="158" fill="rgba(255,255,255,0.52)" font-size="13" font-family="Manrope" font-weight="700" text-anchor="middle">↑</text>
+          <text x="170" y="176" fill="rgba(255,255,255,0.48)" font-size="9.5" font-family="Manrope" font-weight="600" text-anchor="middle">Tracking closes this gap</text>
+        </svg>
+      </div>
+      <div class="copy-block">
+        <div class="eyebrow">The gap you didn't know about</div>
+        <div class="hl" style="font-size:24px;">Your data knows<br>before you do.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          <div class="sub" style="margin-bottom:0;font-size:10px;">Life Dash. Free health tracking.</div>
+          <a class="cta" href="#" style="margin-left:12px;">Find Your Gap</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════ IDEA 7 ═══════════════════ -->
+<div class="section-label">Idea 7 — Single Biomarker Spotlight (Series Format)</div>
+<div class="grid">
+
+  <!-- 7A: HbA1c -->
+  <div>
+    <div class="path-label">Path A · HbA1c · 12 months</div>
+    <div class="ad lo">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="340" height="122" fill="rgba(255,80,80,0.06)"/>
+          <rect x="0" y="122" width="340" height="156" fill="rgba(80,200,120,0.05)"/>
+          <text x="316" y="20" fill="rgba(255,120,120,0.38)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end" letter-spacing="0.08em">ABNORMAL</text>
+          <text x="316" y="256" fill="rgba(100,220,150,0.38)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end" letter-spacing="0.08em">NORMAL</text>
+          <line x1="0" y1="122" x2="340" y2="122" stroke="rgba(255,255,255,0.14)" stroke-width="1" stroke-dasharray="4 3"/>
+          <line x1="0" y1="238" x2="340" y2="238" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <line x1="0" y1="178" x2="340" y2="178" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <line x1="0" y1="60" x2="340" y2="60" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <path d="M20,46 C52,49 78,60 115,80 C148,100 178,120 218,158 C250,190 280,218 320,232 L320,278 L20,278 Z" fill="rgba(255,255,255,0.05)"/>
+          <path d="M20,46 C52,49 78,60 115,80 C148,100 178,120 218,158 C250,190 280,218 320,232" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="20" cy="46" r="6" fill="rgba(255,110,110,0.82)" stroke="#fff" stroke-width="1.5"/>
+          <circle cx="115" cy="80" r="3.5" fill="rgba(255,255,255,0.58)"/>
+          <circle cx="218" cy="158" r="3.5" fill="rgba(255,255,255,0.58)"/>
+          <circle cx="320" cy="232" r="6" fill="rgba(90,210,140,0.92)" stroke="#fff" stroke-width="1.5"/>
+          <text x="28" y="40" fill="rgba(255,255,255,0.82)" font-size="11" font-family="Manrope" font-weight="700">7.8%</text>
+          <text x="28" y="55" fill="rgba(255,255,255,0.38)" font-size="8" font-family="Manrope">Jan 2025</text>
+          <text x="280" y="226" fill="rgba(255,255,255,0.82)" font-size="11" font-family="Manrope" font-weight="700">5.6%</text>
+          <text x="280" y="241" fill="rgba(255,255,255,0.38)" font-size="8" font-family="Manrope">Jan 2026</text>
+        </svg>
+      </div>
+      <div class="copy-block">
+        <div class="eyebrow">HbA1c · 12 months · one direction</div>
+        <div class="hl" style="font-size:26px;">See the marker.<br>Change the habit.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          <div class="sub" style="margin-bottom:0;font-size:10px;">Track with Life Dash. Free.</div>
+          <a class="cta" href="#" style="margin-left:12px;">Track Yours</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7B: Blood Pressure -->
+  <div>
+    <div class="path-label">Path B · Blood Pressure · 6 months</div>
+    <div class="ad lo">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="340" height="102" fill="rgba(255,80,80,0.06)"/>
+          <rect x="0" y="102" width="340" height="176" fill="rgba(80,200,120,0.04)"/>
+          <text x="316" y="20" fill="rgba(255,120,120,0.38)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end" letter-spacing="0.08em">HIGH</text>
+          <text x="316" y="256" fill="rgba(100,220,150,0.38)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end" letter-spacing="0.08em">OPTIMAL</text>
+          <line x1="0" y1="102" x2="340" y2="102" stroke="rgba(255,255,255,0.14)" stroke-width="1" stroke-dasharray="4 3"/>
+          <!-- Systolic line -->
+          <path d="M20,44 C56,47 88,58 124,74 C158,90 188,104 228,138 C258,162 287,190 320,206" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M20,44 C56,47 88,58 124,74 C158,90 188,104 228,138 C258,162 287,190 320,206 L320,278 L20,278 Z" fill="rgba(255,255,255,0.05)"/>
+          <!-- Diastolic line -->
+          <path d="M20,70 C56,72 88,79 124,92 C158,104 188,116 228,150 C258,172 287,196 320,212" stroke="rgba(255,255,255,0.38)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <!-- Dots + labels -->
+          <circle cx="20" cy="44" r="6" fill="rgba(255,110,110,0.82)" stroke="#fff" stroke-width="1.5"/>
+          <text x="28" y="38" fill="rgba(255,255,255,0.82)" font-size="11" font-family="Manrope" font-weight="700">142</text>
+          <text x="28" y="52" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Manrope">systolic</text>
+          <circle cx="320" cy="206" r="6" fill="rgba(90,210,140,0.92)" stroke="#fff" stroke-width="1.5"/>
+          <text x="278" y="200" fill="rgba(255,255,255,0.82)" font-size="11" font-family="Manrope" font-weight="700">118</text>
+          <text x="278" y="214" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Manrope">systolic</text>
+          <!-- Time labels -->
+          <text x="20" y="240" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope">M1</text>
+          <text x="170" y="240" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope" text-anchor="middle">M3</text>
+          <text x="320" y="240" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope" text-anchor="end">M6</text>
+        </svg>
+      </div>
+      <div class="copy-block">
+        <div class="eyebrow">Blood pressure · 6 months · one direction</div>
+        <div class="hl" style="font-size:26px;">142 to 118.<br>The data<br>shows why.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          <div class="sub" style="margin-bottom:0;font-size:10px;">Track yours with Life Dash. Free.</div>
+          <a class="cta" href="#" style="margin-left:12px;">Start Tracking</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7C: Cholesterol -->
+  <div>
+    <div class="path-label">Path C · LDL Cholesterol · 18 months</div>
+    <div class="ad lo">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 340 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="340" height="112" fill="rgba(255,80,80,0.06)"/>
+          <rect x="0" y="112" width="340" height="166" fill="rgba(80,200,120,0.04)"/>
+          <text x="316" y="20" fill="rgba(255,120,120,0.38)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end" letter-spacing="0.08em">HIGH</text>
+          <text x="316" y="256" fill="rgba(100,220,150,0.38)" font-size="8" font-family="Manrope" font-weight="700" text-anchor="end" letter-spacing="0.08em">OPTIMAL</text>
+          <line x1="0" y1="112" x2="340" y2="112" stroke="rgba(255,255,255,0.14)" stroke-width="1" stroke-dasharray="4 3"/>
+          <path d="M20,36 C52,40 82,54 118,72 C152,90 188,110 228,150 C260,182 287,208 320,222 L320,278 L20,278 Z" fill="rgba(255,255,255,0.05)"/>
+          <path d="M20,36 C52,40 82,54 118,72 C152,90 188,110 228,150 C260,182 287,208 320,222" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="20" cy="36" r="6" fill="rgba(255,110,110,0.82)" stroke="#fff" stroke-width="1.5"/>
+          <circle cx="118" cy="72" r="3.5" fill="rgba(255,255,255,0.58)"/>
+          <circle cx="228" cy="150" r="3.5" fill="rgba(255,255,255,0.58)"/>
+          <circle cx="320" cy="222" r="6" fill="rgba(90,210,140,0.92)" stroke="#fff" stroke-width="1.5"/>
+          <text x="28" y="30" fill="rgba(255,255,255,0.82)" font-size="11" font-family="Manrope" font-weight="700">3.32</text>
+          <text x="28" y="44" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Manrope">mmol/L</text>
+          <text x="280" y="216" fill="rgba(255,255,255,0.82)" font-size="11" font-family="Manrope" font-weight="700">2.31</text>
+          <text x="280" y="230" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Manrope">mmol/L</text>
+          <text x="170" y="128" fill="rgba(255,255,255,0.45)" font-size="9" font-family="Manrope" font-weight="700">↓ 30%</text>
+          <text x="20" y="252" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope">Jan 25</text>
+          <text x="170" y="252" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope" text-anchor="middle">Jul 25</text>
+          <text x="320" y="252" fill="rgba(255,255,255,0.26)" font-size="7.5" font-family="Manrope" text-anchor="end">Jul 26</text>
+        </svg>
+      </div>
+      <div class="copy-block">
+        <div class="eyebrow">LDL Cholesterol · 18 months · one direction</div>
+        <div class="hl" style="font-size:26px;">3.32 to 2.31.<br>Tracked every<br>step.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          <div class="sub" style="margin-bottom:0;font-size:10px;">Track yours with Life Dash. Free.</div>
+          <a class="cta" href="#" style="margin-left:12px;">Track Yours</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════ IDEA 8 ═══════════════════ -->
+<div class="section-label">Idea 8 — Most People Never Know · Bold Typography</div>
+<div class="grid">
+
+  <!-- 8A -->
+  <div>
+    <div class="path-label">Path A · The hook statement</div>
+    <div class="ad" style="padding:32px 30px; justify-content:center;">
+      <div class="logo" style="margin-bottom:30px;"><div class="logo-dot"></div>Life Dash</div>
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.32); margin-bottom:14px;">Most people</div>
+      <div style="font-size:34px; font-weight:700; color:rgba(255,255,255,0.45); line-height:1.05; letter-spacing:-0.03em; margin-bottom:22px;">go years without knowing their LDL is high.</div>
+      <div style="width:36px; height:2px; background:rgba(255,255,255,0.28); margin-bottom:22px;"></div>
+      <div style="font-size:34px; font-weight:700; color:#fff; line-height:1.05; letter-spacing:-0.03em; margin-bottom:26px;">You don't<br>have to.</div>
+      <a class="cta" href="#">Know Your Numbers</a>
+    </div>
+  </div>
+
+  <!-- 8B -->
+  <div>
+    <div class="path-label">Path B · Question / answer</div>
+    <div class="ad" style="padding:32px 30px; justify-content:center;">
+      <div class="logo" style="margin-bottom:26px;"><div class="logo-dot"></div>Life Dash</div>
+      <div style="font-size:40px; font-weight:700; color:rgba(255,255,255,0.32); line-height:1.0; letter-spacing:-0.03em; margin-bottom:22px;">Do you know<br>what your<br>HbA1c is?</div>
+      <div style="width:36px; height:2px; background:rgba(255,255,255,0.22); margin-bottom:18px;"></div>
+      <div style="font-size:19px; font-weight:700; color:#fff; line-height:1.25; margin-bottom:26px;">Most people don't.<br>Tracking changes that.</div>
+      <a class="cta" href="#">Find Out Yours</a>
+    </div>
+  </div>
+
+  <!-- 8C -->
+  <div>
+    <div class="path-label">Path C · Stat-led impact</div>
+    <div class="ad" style="padding:30px 28px; justify-content:center;">
+      <div class="logo" style="margin-bottom:22px;"><div class="logo-dot"></div>Life Dash</div>
+      <div style="font-size:84px; font-weight:700; color:#fff; line-height:0.88; letter-spacing:-0.05em; margin-bottom:10px;">1 in 3</div>
+      <div style="font-size:15px; font-weight:700; color:rgba(255,255,255,0.52); line-height:1.35; margin-bottom:22px;">adults have high blood pressure<br>and don't know it.</div>
+      <div style="width:36px; height:2px; background:rgba(255,255,255,0.22); margin-bottom:18px;"></div>
+      <div style="font-size:18px; font-weight:700; color:#fff; line-height:1.25; margin-bottom:26px;">Tracking means you're<br>not one of them.</div>
+      <a class="cta" href="#">Start Tracking Free</a>
+    </div>
+  </div>
+
+</div>
+
+<p style="font-size:10px;color:rgba(255,255,255,0.15);margin-top:48px;padding-bottom:48px;">
+  Life Dash · June 2026 · Text &amp; Graphics Concepts · 1:1 Facebook · #2973cb · SVG data overlays · Inspired by Thriva before/after format
+</p>
+
+</body>
+</html>
